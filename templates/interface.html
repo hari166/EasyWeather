@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  
+  <meta charset="UTF-8">
+
+    <head>
+      <link rel="icon" type="image/x-icon"  href="icons/icons8-sun-16.ico">
+      <link rel="stylesheet"   href="styles.css">
+      <title>EasyWeather</title>
+      <style>
+        body{
+          text-align: center;
+          font-family: "lucida console", monospace;
+          background-color: #fcf5c1c7;
+        }
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+  
+        li {
+          text-align: center;
+        }
+        </style>
+    </head>
+
+  <body>
+    <form action ="/" method="post" id="fill">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+        <button type="submit" style="transition-duration: 0.5s;">Get Weather</button>
+    </form>
+
+    <h1 style="padding: 30px 0px 30px 0px;">Current Weather of {{.location}}</h1>
+
+    <p style="font-size: 65px;">
+        {{.weather.Temperature}}°C</p>
+
+    <p><i class="fas fa-tint"></i>
+        Humidity : {{.weather.Humidity}} %</p>
+
+    <p style="text-transform: capitalize;">
+      <i class="fas fa-cloud"></i>
+        Weather : {{.weather.Weather}}</p>
+
+    <p><i class="fas fa-wind"></i>
+        Wind Speed : {{.weather.Wind}} km/h</p>
+
+    <p><i class="fas fa-sun"></i>
+        <script>
+          var uvi = parseFloat("{{.weather.UVIndex}}").toFixed(1);
+          if (uvi <= 2.0) {
+            document.write("UVI: " + uvi + " (Low)");
+          } else if (uvi <= 5.0) {
+            document.write("UVI: " + uvi + " (Moderate)");
+          } else if (uvi <= 7.0) {
+            document.write("UVI: " + uvi + " (High)");
+          } else if (uvi <= 10.0) {
+            document.write("UVI: " + uvi + " (Very High)");
+          } else {
+            document.write("UVI: " + uvi + " (Extreme)");
+          }
+        </script>
+
+        <script src="https://kit.fontawesome.com/0560ee67bf.js" crossorigin="anonymous"></script></p>
+
+    <p><i class="fas fa-clock"></i> Forecast(5 days):</p>
+    <ul>
+    {{range $index, $value := .weather.Forecast.Tempo}}
+      <li>Day {{$index}}: {{$value}}°C</li>
+    {{end}}
+    </ul>
+
+  </body>
+</html>
