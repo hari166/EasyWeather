@@ -1,0 +1,15 @@
+
+        body{
+          text-align: center;
+          font-family: "lucida console", monospace;
+          background-color: #fcf5c1c7;
+        }
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+  
+        li {
+          text-align: center;
+        }
+ 
