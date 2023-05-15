@@ -25,8 +25,8 @@ An easy-to-use web application for retrieving the real-time weather of a user-in
 - Animation and background images based on the weather conditions.
 
 ## Known Issues
-- Favicon does not load.
-- External linking of ```CSS``` file does not load.
+- Favicon does not load.(Fixed)
+- External linking of ```CSS``` file does not load.(Fixed)
 
 ## Documentation Links
 - [OpenWeatherMap](https://pkg.go.dev/github.com/briandowns/openweathermap#section-readme)
