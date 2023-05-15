@@ -10,7 +10,8 @@ import (
 func main() {
 	apikey := os.Getenv("OWM_API_KEY")
 	router := gin.Default()
-	router.LoadHTMLFiles("templates/interface.html", "templates/error.html")
+	router.LoadHTMLGlob("templates/*.html")
+	router.Static("/static", "./static")
 
 	router.POST("/", func(c *gin.Context) {
 		location := c.PostForm("location")
